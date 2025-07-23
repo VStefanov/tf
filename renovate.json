@@ -1,18 +1,16 @@
 {
   "extends": ["config:base"],
   "enabledManagers": ["terraform"],
-  "terraform": {
-    "enabled": true
-  },
   "regexManagers": [
     {
       "fileMatch": ["modules/root/.*\\.tf$"],
       "matchStrings": [
         "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>[^\"]+)\""
       ],
-      "depNameTemplate": "github.com/VStefanov/tf.git//modules/{{module}}",
-      "datasourceTemplate": "terraform-module",
-      "versioningTemplate": "semver"
+      "depNameTemplate": "tf-{{module}}",
+      "datasourceTemplate": "git-tags",
+      "versioningTemplate": "semver",
+      "urlTemplate": "https://github.com/VStefanov/tf.git"
     }
   ]
 }
