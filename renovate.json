@@ -9,8 +9,7 @@
       ],
       "depNameTemplate": "tf-{{module}}-latest-commit",
       "datasourceTemplate": "git-commits",
-      "versioningTemplate": "loose",
-      "urlTemplate": "https://github.com/VStefanov/tf.git"
+      "versioningTemplate": "loose"
     }
   ]
 }
