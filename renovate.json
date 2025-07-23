@@ -4,24 +4,15 @@
   "terraform": {
     "enabled": true
   },
-  "labels": ["renovate"],
-  "dependencyDashboard": true,
-  "packageRules": [
+  "regexManagers": [
     {
-      "description": "Auto-update EC2 module hash when EC2 submodule changes",
-      "matchPaths": ["modules/ec2/**"],
-      "matchPackagePatterns": [".*//modules/ec2"],
-      "groupName": "EC2 Module Hash Update",
-      "automerge": false,
-      "prPriority": 1
-    },
-    {
-      "description": "Auto-update RDS module hash when RDS submodule changes",
-      "matchPaths": ["modules/rds/**"],
-      "matchPackagePatterns": [".*//modules/rds"],
-      "groupName": "RDS Module Hash Update",
-      "automerge": false,
-      "prPriority": 1
+      "fileMatch": ["modules/root/.*\\.tf$"],
+      "matchStrings": [
+        "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>[^\"]+)\""
+      ],
+      "depNameTemplate": "github.com/VStefanov/tf.git//modules/{{module}}",
+      "lookupNameTemplate": "VStefanov/tf//modules/{{module}}",
+      "datasourceTemplate": "github-commits"
     }
   ]
 }
