@@ -1,0 +1,22 @@
+name: Run Renovate CLI
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *' # every hour
+  push:
+    tags:
+      - 'v*' # after new version tag
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Run Renovate
+        uses: renovatebot/github-action@v40.1.11
+        env:
+          RENOVATE_REPOSITORIES: ${{ github.repository }}
+          RENOVATE_PLATFORM: github
