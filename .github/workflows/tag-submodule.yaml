@@ -12,13 +12,20 @@ jobs:
   tag:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Create timestamp-based tag
+      - name: Create and push tag
+        env:
+          GH_USERNAME: VStefanov         # 👈 Replace this with PAT owner's username
+          GH_TOKEN: ${{ secrets.PAT_GITHUB }}         # 👈 Your fine-grained PAT
         run: |
           TAG="v$(date +'%Y%m%d%H%M%S')"
-          echo "Generated tag: $TAG"
+          echo "Creating tag: $TAG"
 
           git tag $TAG
-          git remote set-url origin https://x-access-token:${{ secrets.PAT_GITHUB }}@github.com/${{ github.repository }}
+
+          # Use username + token format (NOT x-access-token)
+          git remote set-url origin https://VStefanov:${PAT_GITHUB}@github.com/${{ github.repository }}.git
+
           git push origin $TAG
