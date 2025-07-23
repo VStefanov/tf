@@ -1,15 +1,25 @@
 {
   "extends": ["config:base"],
   "enabledManagers": ["terraform"],
-  "regexManagers": [
+  "terraform": {
+    "enabled": true
+  },
+  "labels": ["renovate"],
+  "packageRules": [
     {
-      "fileMatch": ["modules/root/.*\\.tf$"],
-      "matchStrings": [
-        "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>[a-f0-9]{7,40})\""
-      ],
-      "depNameTemplate": "tf-{{module}}-latest-commit",
-      "datasourceTemplate": "git-commits",
-      "versioningTemplate": "loose"
+      "description": "Update EC2 submodule when it changes",
+      "matchPaths": ["modules/ec2/**"],
+      "matchDatasources": ["terraform-module"],
+      "matchPackageNames": ["ec2"],
+      "groupName": "EC2 Module Updates"
+    },
+    {
+      "description": "Update RDS submodule when it changes",
+      "matchPaths": ["modules/rds/**"],
+      "matchDatasources": ["terraform-module"],
+      "matchPackageNames": ["rds"],
+      "groupName": "RDS Module Updates"
     }
-  ]
+  ],
+  "dependencyDashboard": true
 }
