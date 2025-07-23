@@ -10,9 +10,12 @@
       "matchStrings": [
         "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>[^\"]+)\""
       ],
-      "depNameTemplate": "github.com/VStefanov/tf.git//modules/{{module}}",
-      "lookupNameTemplate": "VStefanov/tf//modules/{{module}}",
-      "datasourceTemplate": "github-commits"
+      "depNameTemplate": "{{module}}",
+      "lookupNameTemplate": "VStefanov/tf",
+      "datasourceTemplate": "github-tags",
+      "versioningTemplate": "semver",
+      "extractVersion": "{{version}}",
+      "tagMatch": "^{{module}}-(?<version>\\d+\\.\\d+\\.\\d+)$"
     }
   ]
 }
