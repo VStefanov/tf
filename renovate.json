@@ -5,11 +5,11 @@
     {
       "fileMatch": ["modules/root/.*\\.tf$"],
       "matchStrings": [
-        "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>[^\"]+)\""
+        "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>[a-f0-9]{7,40})\""
       ],
-      "depNameTemplate": "tf-{{module}}",
-      "datasourceTemplate": "git-tags",
-      "versioningTemplate": "semver",
+      "depNameTemplate": "tf-{{module}}-latest-commit",
+      "datasourceTemplate": "git-commits",
+      "versioningTemplate": "loose",
       "urlTemplate": "https://github.com/VStefanov/tf.git"
     }
   ]
