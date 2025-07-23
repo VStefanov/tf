@@ -26,6 +26,6 @@ jobs:
           git tag $TAG
 
           # Use username + token format (NOT x-access-token)
-          git remote set-url origin https://VStefanov:${PAT_GITHUB}@github.com/${{ github.repository }}.git
+          git remote set-url origin https://${GH_USERNAME}:${GH_TOKEN}@github.com/${{ github.repository }}.git
 
           git push origin $TAG
