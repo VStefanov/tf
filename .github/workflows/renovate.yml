@@ -6,7 +6,7 @@ on:
     - cron: '0 * * * *' # every hour
   push:
     tags:
-      - 'v*' # after new version tag
+      - '*v*' # after new version tag
 
 jobs:
   renovate:
