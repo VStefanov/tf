@@ -11,7 +11,8 @@
         "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>[^\"]+)\""
       ],
       "depNameTemplate": "github.com/VStefanov/tf.git//modules/{{module}}",
-      "datasourceTemplate": "terraform-module"
+      "datasourceTemplate": "terraform-module",
+      "versioningTemplate": "loose"
     }
   ]
 }
