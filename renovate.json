@@ -15,7 +15,7 @@
       "versioningTemplate": "semver"
     }
   ],
-   "packageRules": [
+  "packageRules": [
     {
       "matchDatasources": ["terraform-module"],
       "matchPackagePatterns": ["^tf-"],
@@ -24,5 +24,7 @@
       "addLabels": ["terraform", "submodule"],
       "commitMessageTopic": "Terraform submodule versions"
     }
-  ]
+  ],
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 1
 }
