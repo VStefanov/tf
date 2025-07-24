@@ -1,18 +1,33 @@
 {
-  "extends": ["config:base"],
-  "enabledManagers": ["terraform"],
-  "terraform": {
-    "enabled": true
-  },
-  "regexManagers": [
+  "extends": ["config:base", ":semanticCommits"],
+  "enabledManagers": ["terraform", "custom.regex"],
+
+  "customManagers": [
     {
-      "fileMatch": ["modules/root/.*\\.tf$"],
+      "customType": "regex",
+      "description": "Track <module>-v<semver> tags → replace ?ref=<sha>",
+      "managerFilePatterns": ["\\.tf$"],
+
       "matchStrings": [
-        "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>[^\"]+)\""
+        "\\s*#\\s*renovate:\\s*version=(?<currentValue>[\\w.-]+)\\s*(?:\\n|\\r|$)\\s*\
+source\\s*=\\s*\"git::https://github\\.com/(?<org>[\\w-]+)/(?<repo>[\\w-]+)(?:\\.git)?//modules/(?<module>[\\w-]+)\\?ref=(?<currentDigest>[0-9a-f]{40})\""
       ],
-      "depNameTemplate": "github.com/VStefanov/tf.git//modules/{{module}}",
-      "lookupNameTemplate": "VStefanov/tf//modules/{{module}}",
-      "datasourceTemplate": "github-commits"
+      "datasourceTemplate": "github-tags",
+      "lookupNameTemplate": "{{ org }}/{{ repo }}",
+      "depNameTemplate": "{{ module }}-submodule",
+      "versioningTemplate": "semver",
+      "extractVersionTemplate": "^{{ module }}-v(?<version>\\d+(?:\\.\\d+){1,2}(?:[-+].*)?)$"
     }
-  ]
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["-submodule$"],
+      "groupName": "terraform-submodule-updates",
+      "groupSlug": "tf-submodules",
+      "addLabels": ["terraform", "submodule", "dependencies"]
+    }
+  ],
+
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 2
 }
