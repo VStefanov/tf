@@ -14,5 +14,15 @@
       "datasourceTemplate": "terraform-module",
       "versioningTemplate": "semver"
     }
+  ],
+   "packageRules": [
+    {
+      "matchDatasources": ["terraform-module"],
+      "matchPackagePatterns": ["^tf-"],
+      "groupName": "Updated Terraform submodules",
+      "groupSlug": "terraform-submodules",
+      "addLabels": ["terraform", "submodule"],
+      "commitMessageTopic": "Terraform submodule versions"
+    }
   ]
 }
