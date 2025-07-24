@@ -8,6 +8,10 @@ on:
     tags:
       - '*'
 
+permissions:
+  contents: write       # ✅ required to push updated files
+  pull-requests: write  # ✅ required to open PRs
+
 jobs:
   renovate:
     runs-on: ubuntu-latest
