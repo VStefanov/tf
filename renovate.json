@@ -12,7 +12,8 @@
       ],
       "depNameTemplate": "github.com/VStefanov/tf.git//modules/{{module}}",
       "datasourceTemplate": "terraform-module",
-      "versioningTemplate": "loose"
+      "versioningTemplate": "semver",
+      "extractVersionTemplate": "^{{ module }}-v(?<version>\\d+\\.\\d+\\.\\d+)$"
     }
   ],
   "packageRules": [
