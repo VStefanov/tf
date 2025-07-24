@@ -1,8 +1,9 @@
 {
   "extends": ["config:base"],
   "enabledManagers": ["terraform"],
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "fileMatch": ["modules/root/.*\\.tf$"],
       "matchStrings": [
         "source\\s*=\\s*\"git::https://github\\.com/VStefanov/tf\\.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>[^\"]+)\""
