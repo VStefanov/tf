@@ -13,16 +13,5 @@
       "versioningTemplate": "semver",
       "extractVersionTemplate": "^{{module}}-v(?<version>\\d+\\.\\d+\\.\\d+)$"
     }
-  ],
-  "packageRules": [
-    {
-      "matchPackagePatterns": ["-submodule$"],
-      "groupName": "Updated Terraform submodules",
-      "groupSlug": "terraform-submodules",
-      "addLabels": ["terraform", "submodule"],
-      "commitMessageTopic": "Terraform submodule versions"
-    }
-  ],
-  "prHourlyLimit": 0,
-  "prConcurrentLimit": 10
+  ]
 }
