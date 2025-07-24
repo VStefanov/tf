@@ -10,7 +10,7 @@
       "matchStrings": [
         "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>[^\"]+)\""
       ],
-      "depNameTemplate": "github.com/VStefanov/tf.git//modules/{{module}}",
+      "depNameTemplate": "{{module}}-submodule",
       "datasourceTemplate": "github-tags",
       "versioningTemplate": "semver",
       "extractVersionTemplate": "^{{module}}-v(?<version>\\d+\\.\\d+\\.\\d+)$"
