@@ -9,8 +9,7 @@
       "managerFilePatterns": ["\\.tf$"],
 
       "matchStrings": [
-        "\\s*#\\s*renovate:\\s*version=(?<currentValue>[\\w.-]+)\\s*(?:\\n|\\r|$)\\s*\
-source\\s*=\\s*\"git::https://github\\.com/(?<org>[\\w-]+)/(?<repo>[\\w-]+)(?:\\.git)?//modules/(?<module>[\\w-]+)\\?ref=(?<currentDigest>[0-9a-f]{40})\""
+        "\\s*#\\s*renovate:\\s*version=(?<currentValue>[\\w.-]+)\\s*(?:\\n|\\r|$)\\s*source\\s*=\\s*\"git::https://github\\.com/(?<org>[\\w-]+)/(?<repo>[\\w-]+)(?:\\.git)?//modules/(?<module>[\\w-]+)\\?ref=(?<currentDigest>[0-9a-f]{40})\""
       ],
       "datasourceTemplate": "github-tags",
       "lookupNameTemplate": "{{ org }}/{{ repo }}",
