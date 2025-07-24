@@ -3,5 +3,5 @@ module "ec2" {
 }
 
 module "rds" {
-  source = "git::https://github.com/VStefanov/tf.git//modules/rds?ref=rds-v0.0.1"
+  source = "git::https://github.com/VStefanov/tf.git//modules/rds?ref=v0.0.6"
 }
