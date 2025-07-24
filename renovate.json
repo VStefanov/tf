@@ -12,7 +12,7 @@
       ],
       "depNameTemplate": "github.com/VStefanov/tf.git//modules/{{module}}",
       "datasourceTemplate": "terraform-module",
-      "versioningTemplate": "semver",
+      "versioningTemplate": "semver-coerced",
       "extractVersionTemplate": "^{{ module }}-v(?<version>\\d+\\.\\d+\\.\\d+)$"
     }
   ],
@@ -25,7 +25,5 @@
       "addLabels": ["terraform", "submodule"],
       "commitMessageTopic": "Terraform submodule versions"
     }
-  ],
-  "prHourlyLimit": 0,
-  "prConcurrentLimit": 1
+  ]
 }
