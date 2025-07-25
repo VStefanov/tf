@@ -3,3 +3,4 @@ resource "null_resource" "ec2_example" {
     command = "echo Hello from EC2"
   }
 }
+
