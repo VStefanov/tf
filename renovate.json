@@ -15,7 +15,7 @@
       "datasourceTemplate": "terraform-module"
     }
   ],
-  "packagesRule": [
+  "packageRules": [
     {
       "groupName": "{{parentDir}}",
       "matchPaths": ["**/modules/**"]
