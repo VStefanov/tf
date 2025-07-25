@@ -17,8 +17,8 @@
   ],
   "packageRules": [
     {
-      "groupName": "{{parentDir}}",
-      "matchPaths": ["**/modules/**"]
+      "matchManagers": ["regex"],
+      "extractVersion": "^(?<module>\\w+)-v(?<version>\\d+\\.\\d+\\.\\d+)$"
     }
   ]
 }
