@@ -5,6 +5,7 @@
     "enabled": true
   },
   "ignoreUnstable": false,
+  "branchTopic": "",
   "regexManagers": [
     {
       "fileMatch": ["modules/root/.*\\.tf$"],
@@ -17,9 +18,7 @@
   ],
   "packageRules": [
     {
-      "matchManagers": ["regex"],
-      "matchPaths": ["modules/**/.*\\.tf$"],
-      "extractVersion": "^(?<module>\\w+)-v(?<version>\\d+\\.\\d+\\.\\d+)$"
+      "branchName": "{{{module}}}-v{{{version}}}"
     }
   ],
   "prHourlyLimit": 0,
