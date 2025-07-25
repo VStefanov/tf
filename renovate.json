@@ -20,7 +20,6 @@
       ],
       "depNameTemplate": "https://github.com/VStefanov/tf.git//modules/{{module}}",
       "packageNameTemplate": "github.com/VStefanov/tf//modules/{{module}}",
-      "lookupNameTemplate": "VStefanov/tf",
       "datasourceTemplate": "github-tags",
       "extractVersionTemplate": "^{{module}}-v(?<version>\\d+\\.\\d+\\.\\d+)$",
       "versioningTemplate": "semver"
