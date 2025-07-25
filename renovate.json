@@ -14,11 +14,5 @@
       "depNameTemplate": "github.com/VStefanov/tf.git//modules/{{module}}",
       "datasourceTemplate": "terraform-module"
     }
-  ],
-  "packageRules": [
-    {
-      "matchManagers": ["regex"],
-      "extractVersion": "^(?<module>\\w+)-v(?<version>\\d+\\.\\d+\\.\\d+)$"
-    }
   ]
 }
