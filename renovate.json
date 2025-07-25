@@ -29,7 +29,7 @@
       "matchPackageNames": [
         "github.com/VStefanov/tf.git//modules/ec2"
       ],
-      "extractVersion": "^ec2-v(?<version>\\d+\\.\\d+\\.\\d+)$",
+      "extractVersion": "^ec2-v(?<version>\\d+\\.\\d+\\.\\d+)$"
     },
     {
       "matchManagers": [
@@ -38,7 +38,7 @@
       "matchPackageNames": [
         "github.com/VStefanov/tf.git//modules/rds"
       ],
-      "extractVersion": "^rds-v(?<version>\\d+\\.\\d+\\.\\d+)$",
+      "extractVersion": "^rds-v(?<version>\\d+\\.\\d+\\.\\d+)$"
     },
     {
       "matchManagers": [
