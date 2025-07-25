@@ -15,12 +15,11 @@
       "datasourceTemplate": "terraform-module"
     }
   ],
+  "branchTopic": "{{{depNameSanitized}}}-{{{module}}}-v{{{version}}}",
   "packageRules": [
     {
       "matchManagers": ["regex"],
-      "matchPaths": ["modules/**/.*\\.tf$"],
-      "extractVersion": "^(?<module>\\w+)-v(?<version>\\d+\\.\\d+\\.\\d+)$",
-      "branchTopic": "{{{module}}}-v{{{version}}"
+      "extractVersion": "^{{{module}}}-v(?<version>\\d+\\.\\d+\\.\\d+)$"
     }
   ],
   "prHourlyLimit": 0,
