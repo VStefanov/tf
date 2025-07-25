@@ -16,7 +16,7 @@
         "/modules/root/.*\\.tf$/"
       ],
       "matchStrings": [
-        "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>(?<module>[^-]+)-v(?<version>\\d+\\.\\d+\\.\\d+))\""
+        "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>(?<module>\\w+)-v(?<version>\\d+\\.\\d+\\.\\d+))\""
       ],
       "depNameTemplate": "https://github.com/VStefanov/tf.git//modules/{{module}}",
       "packageNameTemplate": "github.com/VStefanov/tf//modules/{{module}}",
