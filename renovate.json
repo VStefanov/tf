@@ -4,6 +4,7 @@
   "terraform": {
     "enabled": true
   },
+  "ignoreUnstable": false,
   "regexManagers": [
     {
       "fileMatch": ["modules/root/.*\\.tf$"],
@@ -11,7 +12,8 @@
         "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>\\w+-v\\d+\\.\\d+\\.\\d+)\""
       ],
       "depNameTemplate": "github.com/VStefanov/tf.git//modules/{{module}}",
-      "datasourceTemplate": "github-tags"
+      "datasourceTemplate": "terraform-module",
+      "versioningTemplate": "loose"
     }
   ]
 }
