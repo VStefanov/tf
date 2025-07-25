@@ -3,4 +3,3 @@ resource "null_resource" "s3_example" {
     command = "echo Hello from S3 kur"
   }
 }
-
