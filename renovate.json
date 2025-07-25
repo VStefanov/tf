@@ -1,46 +1,21 @@
 {
-  "extends": [
-    "config:recommended"
-  ],
-  "enabledManagers": [
-    "terraform"
-  ],
+  "extends": ["config:base"],
+  "enabledManagers": ["terraform"],
   "terraform": {
     "enabled": true
   },
   "ignoreUnstable": false,
-  "customManagers": [
+  "regexManagers": [
     {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/modules/root/.*\\.tf$/"
-      ],
+      "fileMatch": ["modules/root/.*\\.tf$"],
       "matchStrings": [
-        "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>(?<prefix>\\w+)-v(?<version>\\d+\\.\\d+\\.\\d+))\""
+         "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>(?<prefix>\\w+)-v(?<version>\\d+\\.\\d+\\.\\d+))\""
       ],
       "depNameTemplate": "github.com/VStefanov/tf.git//modules/{{module}}",
-      "datasourceTemplate": "github-tags"
+      "datasourceTemplate": "terraform-module"
     }
   ],
   "branchTopic": "{{{depNameSanitized}}}-{{{newVersion}}}",
-  "packageRules": [
-    {
-      "matchManagers": [
-        "custom.regex"
-      ],
-      "matchDepNames": "github.com/VStefanov/tf.git//modules/ec2$",
-      "extractVersion": "^ec2-v(?<version>\\d+\\.\\d+\\.\\d+)$",
-      "versioning": "semver"
-    },
-    {
-      "matchManagers": [
-        "custom.regex"
-      ],
-      "matchDepNames": "github.com/VStefanov/tf.git//modules/rds$",
-      "extractVersion": "^rds-v(?<version>\\d+\\.\\d+\\.\\d+)$",
-      "versioning": "semver"
-    }
-  ],
   "prHourlyLimit": 0,
   "prConcurrentLimit": 2
 }
