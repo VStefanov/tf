@@ -28,7 +28,7 @@
       "matchManagers": [
         "custom.regex"
       ],
-      "matchDepPattern": "github.com/VStefanov/tf.git//modules/ec2$",
+      "matchDepNames": "github.com/VStefanov/tf.git//modules/ec2$",
       "extractVersion": "^ec2-v(?<version>\\d+\\.\\d+\\.\\d+)$",
       "versioning": "semver"
     },
@@ -36,7 +36,7 @@
       "matchManagers": [
         "custom.regex"
       ],
-      "matchDepPattern": "github.com/VStefanov/tf.git//modules/rds$",
+      "matchDepNames": "github.com/VStefanov/tf.git//modules/rds$",
       "extractVersion": "^rds-v(?<version>\\d+\\.\\d+\\.\\d+)$",
       "versioning": "semver"
     }
