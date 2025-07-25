@@ -26,7 +26,7 @@ jobs:
             https://api.github.com/repos/${{ github.repository }} || echo "Token invalid or insufficient"
 
       - name: Run Renovate
-        uses: renovatebot/github-action@v41.43.3
+        uses: renovatebot/github-action@v43.0.4
         with:
           token: ${{ secrets.PAT_GITHUB }}
         env:
