@@ -16,11 +16,14 @@
         "/modules/root/.*\\.tf$/"
       ],
       "matchStrings": [
-        "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>(?<prefix>\\w+)-v(?<version>\\d+\\.\\d+\\.\\d+))\""
+        "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>(?<module>[^-]+)-v(?<version>\\d+\\.\\d+\\.\\d+))\""
       ],
-      "depNameTemplate": "{{{module}}}-v{{{version}}}",
-      "packageNameTemplate": "{{{module}}}-v{{{version}}}",
-      "datasourceTemplate": "terraform-module"
+      "depNameTemplate": "https://github.com/VStefanov/tf.git//modules/{{module}}",
+      "packageNameTemplate": "github.com/VStefanov/tf//modules/{{module}}",
+      "lookupNameTemplate": "VStefanov/tf",
+      "datasourceTemplate": "github-tags",
+      "extractVersionTemplate": "^{{module}}-v(?<version>\\d+\\.\\d+\\.\\d+)$",
+      "versioningTemplate": "semver"
     }
   ],
   "branchTopic": "{{{depNameSanitized}}}-{{{newVersion}}}",
