@@ -14,5 +14,11 @@
       "depNameTemplate": "github.com/VStefanov/tf.git//modules/{{module}}",
       "datasourceTemplate": "terraform-module"
     }
+  ],
+  "packagesRule": [
+    {
+      "groupName": "{{parentDir}}",
+      "matchPaths": ["**/modules/**"]
+    }
   ]
 }
