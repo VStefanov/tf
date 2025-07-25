@@ -17,8 +17,8 @@
       "matchStrings": [
         "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>(?<prefix>\\w+)-v(?<version>\\d+\\.\\d+\\.\\d+))\""
       ],
-      "depNameTemplate": "{{module}}-v{{version}}",
-      "packageNameTemplate": "{{module}}-v{{version}}",
+      "depNameTemplate": "{{{module}}}-v{{{version}}}",
+      "packageNameTemplate": "{{{module}}}-v{{{version}}}",
       "datasourceTemplate": "terraform-module"
     }
   ],
