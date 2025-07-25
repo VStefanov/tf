@@ -17,10 +17,11 @@
   ],
   "branchTopic": "{{{depNameSanitized}}}-{{{newVersion}}}",
   "packageRules": [
-    {
-      "matchManagers": ["regex"],
-      "extractVersion": "^{{{module}}}-v(?<version>\\d+\\.\\d+\\.\\d+)$"
-    }
+     {
+       "matchManagers": ["regex"],
+       "extractVersion": "^{{{module}}}-v(?<version>\\d+\\.\\d+\\.\\d+)$",
+       "versioning": "semver"
+     }
   ],
   "prHourlyLimit": 0,
   "prConcurrentLimit": 2
