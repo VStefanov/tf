@@ -1,15 +1,22 @@
 {
-  "extends": ["config:base"],
-  "enabledManagers": ["terraform"],
+  "extends": [
+    "config:recommended"
+  ],
+  "enabledManagers": [
+    "terraform"
+  ],
   "terraform": {
     "enabled": true
   },
   "ignoreUnstable": false,
-  "regexManagers": [
+  "customManagers": [
     {
-      "fileMatch": ["modules/root/.*\\.tf$"],
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/modules/root/.*\\.tf$/"
+      ],
       "matchStrings": [
-         "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>(?<prefix>\\w+)-v(?<version>\\d+\\.\\d+\\.\\d+))\""
+        "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>(?<prefix>\\w+)-v(?<version>\\d+\\.\\d+\\.\\d+))\""
       ],
       "depNameTemplate": "github.com/VStefanov/tf.git//modules/{{module}}",
       "datasourceTemplate": "github-tags"
@@ -17,11 +24,13 @@
   ],
   "branchTopic": "{{{depNameSanitized}}}-{{{newVersion}}}",
   "packageRules": [
-     {
-       "matchManagers": ["regex"],
-       "extractVersion": "^{{{module}}}-v(?<version>\\d+\\.\\d+\\.\\d+)$",
-       "versioning": "semver"
-     }
+    {
+      "matchManagers": [
+        "custom.regex"
+      ],
+      "extractVersion": "^{{{module}}}-v(?<version>\\d+\\.\\d+\\.\\d+)$",
+      "versioning": "semver"
+    }
   ],
   "prHourlyLimit": 0,
   "prConcurrentLimit": 2
