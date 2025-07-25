@@ -21,5 +21,7 @@
       "matchPaths": ["modules/**/.*\\.tf$"],
       "extractVersion": "^(?<module>\\w+)-v(?<version>\\d+\\.\\d+\\.\\d+)$"
     }
-  ]
+  ],
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 2
 }
