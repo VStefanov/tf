@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "enabledManagers": [
+    "terraform"
+  ],
+  "terraform": {
+    "enabled": true
+  },
+  "ignoreUnstable": false,
+  "regexManagers": [
+    {
+      "fileMatch": ["modules/root/.*\\.tf$"],
+      "matchStrings": [
+        "source\\s*=\\s*\"git::https://github.com/VStefanov/tf.git//modules/(?<module>[^?]+)\\?ref=(?<currentValue>(?<module>[^-]+)-v(?<version>\\d+\\.\\d+\\.\\d+))\""
+      ],
+      "depNameTemplate": "https://github.com/VStefanov/tf.git//modules/{{module}}",
+      "datasourceTemplate": "git-tags",
+      "versioningTemplate": "semver"
+    }
+  ],
+  "branchTopic": "{{{depNameSanitized}}}-{{{newVersion}}}",
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 2
+}
