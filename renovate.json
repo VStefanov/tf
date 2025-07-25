@@ -18,6 +18,9 @@
   ],
   "packageRules": [
     {
+      "matchManagers": ["regex"],
+      "matchPaths": ["modules/**/.*\\.tf$"],
+      "extractVersion": "^(?<module>\\w+)-v(?<version>\\d+\\.\\d+\\.\\d+)$",
       "branchName": "{{{module}}}-v{{{version}}}"
     }
   ],
