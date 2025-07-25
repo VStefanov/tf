@@ -22,35 +22,6 @@
       "datasourceTemplate": "terraform-module"
     }
   ],
-  "packageRules": [
-    {
-      "matchManagers": [
-        "regex"
-      ],
-      "matchPackageNames": [
-        "github.com/VStefanov/tf.git//modules/ec2"
-      ],
-      "extractVersion": "^ec2-v(?<version>\\d+\\.\\d+\\.\\d+)$"
-    },
-    {
-      "matchManagers": [
-        "regex"
-      ],
-      "matchPackageNames": [
-        "github.com/VStefanov/tf.git//modules/rds"
-      ],
-      "extractVersion": "^rds-v(?<version>\\d+\\.\\d+\\.\\d+)$"
-    },
-    {
-      "matchManagers": [
-        "regex"
-      ],
-      "matchPackageNames": [
-        "github.com/VStefanov/tf.git//modules/s3"
-      ],
-      "extractVersion": "^s3-v(?<version>\\d+\\.\\d+\\.\\d+)$"
-    }
-  ],
   "branchTopic": "{{{depNameSanitized}}}-{{{newVersion}}}",
   "prHourlyLimit": 0,
   "prConcurrentLimit": 2
