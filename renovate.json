@@ -28,8 +28,17 @@
       "matchManagers": [
         "custom.regex"
       ],
-      "extractVersion": "^{{{module}}}-v(?<version>\\d+\\.\\d+\\.\\d+)$",
-      "ignoreUnstable": false
+      "matchDepPattern": "github.com/VStefanov/tf.git//modules/ec2$",
+      "extractVersion": "^ec2-v(?<version>\\d+\\.\\d+\\.\\d+)$",
+      "versioning": "semver"
+    },
+    {
+      "matchManagers": [
+        "custom.regex"
+      ],
+      "matchDepPattern": "github.com/VStefanov/tf.git//modules/rds$",
+      "extractVersion": "^rds-v(?<version>\\d+\\.\\d+\\.\\d+)$",
+      "versioning": "semver"
     }
   ],
   "prHourlyLimit": 0,
