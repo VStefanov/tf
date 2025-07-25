@@ -29,7 +29,7 @@
         "custom.regex"
       ],
       "extractVersion": "^{{{module}}}-v(?<version>\\d+\\.\\d+\\.\\d+)$",
-      "versioning": "semver"
+      "ignoreUnstable": false
     }
   ],
   "prHourlyLimit": 0,
