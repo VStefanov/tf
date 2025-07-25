@@ -15,7 +15,7 @@
       "datasourceTemplate": "terraform-module"
     }
   ],
-  "branchTopic": "{{module}}-v{{version}}",
+  "branchTopic": "{{{depNameSanitized}}}-{{{newVersion}}}",
   "packageRules": [
     {
       "matchManagers": ["regex"],
